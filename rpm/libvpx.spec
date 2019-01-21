@@ -35,6 +35,14 @@ WebM files consist of video streams compressed with the VPx video codecs
 and audio streams compressed with the Vorbis audio codec.
 The WebM file structure is based on the Matroska container.
 
+%package doc
+Summary:   Documentation for %{name}
+Group:     Documentation
+Requires:  %{name} = %{version}-%{release}
+
+%description doc
+%{summary}.
+
 %prep
 %setup -q -n %{name}-%{version}/upstream
 %patch1 -p1
@@ -61,6 +69,10 @@ make %{?_smp_mflags} verbose=yes GEN_EXAMPLES=
 %install
 %make_install verbose=yes GEN_EXAMPLES=
 
+mkdir -p %{buildroot}%{_docdir}/%{name}-%{version}
+install -m0644 -t %{buildroot}%{_docdir}/%{name}-%{version} \
+        AUTHORS README CHANGELOG
+
 %clean
 rm -rf %{buildroot}
 
@@ -70,12 +82,15 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root)
-%doc LICENSE AUTHORS README CHANGELOG
-%{_libdir}/libvpx.so.*
+%license LICENSE
+%{_libdir}/%{name}.so.*
 
 %files devel
 %defattr(-,root,root)
 %{_includedir}/vpx/
 %{_libdir}/pkgconfig/vpx.pc
-%{_libdir}/libvpx.so
+%{_libdir}/%{name}.so
 
+%files doc
+%defattr(-,root,root,-)
+%{_docdir}/%{name}-%{version}
