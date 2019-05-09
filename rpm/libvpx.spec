@@ -1,5 +1,5 @@
 Name:           libvpx
-Version:        1.7.0
+Version:        1.8.1
 Release:        1
 Summary:        VPx codec library
 License:        BSD
@@ -7,6 +7,7 @@ Group:          Applications/Multimedia
 Url:            http://www.webmproject.org/
 Source0:        %{name}-%{version}.tar.gz
 Patch1:         0001-armv7-use-hard-float.patch
+Patch2:         0002-Skip-diff-version-check-that-doesnt-work-with-busybo.patch
 %ifarch %{ix86} x86_64
 BuildRequires:  yasm
 %endif
@@ -45,7 +46,7 @@ Requires:  %{name} = %{version}-%{release}
 
 %prep
 %setup -q -n %{name}-%{version}/upstream
-%patch1 -p1
+%autopatch -p1
 
 %build
 
@@ -55,10 +56,7 @@ Requires:  %{name} = %{version}-%{release}
     --enable-debug --enable-shared --disable-static \
     --enable-vp8 --enable-vp9 --enable-vp9-highbitdepth \
     --enable-multithread --enable-postproc \
-    --enable-experimental --enable-spatial-svc \
-%ifarch aarch64
-    --disable-neon --disable-neon_asm \
-%endif
+    --enable-experimental \
 %ifarch %{ix86} x86_64
     --as=yasm \
 %endif
