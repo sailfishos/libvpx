@@ -2,7 +2,7 @@ Name:           libvpx
 Version:        1.7.0
 Release:        1
 Summary:        VPx codec library
-License:        BSD-3-Clause and GPL-2.0+
+License:        BSD
 Group:          Applications/Multimedia
 Url:            http://www.webmproject.org/
 Source0:        %{name}-%{version}.tar.gz
