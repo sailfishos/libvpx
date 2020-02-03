@@ -1,5 +1,5 @@
 Name:           libvpx
-Version:        1.8.1
+Version:        1.8.2
 Release:        1
 Summary:        VPx codec library
 License:        BSD
