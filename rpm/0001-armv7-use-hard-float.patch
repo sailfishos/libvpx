@@ -1,6 +1,6 @@
 --- a/build/make/configure.sh
 +++ b/build/make/configure.sh
-@@ -943,8 +943,8 @@ process_common_toolchain() {
+@@ -1001,8 +1001,8 @@ process_common_toolchain() {
  #endif
  EOF
              fi
