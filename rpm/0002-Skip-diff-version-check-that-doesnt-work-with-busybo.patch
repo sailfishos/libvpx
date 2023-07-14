@@ -7,7 +7,7 @@ diff --git a/configure b/configure
 index 6204f10..5e3f4b2 100755
 --- a/configure
 +++ b/configure
-@@ -177,10 +177,6 @@
+@@ -183,10 +183,6 @@
      [ -f "${source_path}/${t}.mk" ] && enable_feature ${t}
  done
  
