@@ -1,6 +1,6 @@
 Name:           libvpx
 Summary:        VP8/VP9 Video Codec SDK
-Version:        1.13.1
+Version:        1.14.0
 Release:        1
 License:        BSD
 Url:            https://www.webmproject.org/code/
@@ -45,6 +45,9 @@ Requires:  %{name} = %{version}-%{release}
     --enable-experimental \
 %ifarch %{ix86} x86_64
     --as=yasm \
+%endif
+%ifarch aarch64
+    --disable-neon_i8mm \
 %endif
     --enable-pic --size-limit=8192x8192
 
