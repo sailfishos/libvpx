@@ -1,6 +1,6 @@
 Name:           libvpx
 Summary:        VP8/VP9 Video Codec SDK
-Version:        1.14.0
+Version:        1.14.1
 Release:        1
 License:        BSD
 Url:            https://www.webmproject.org/code/
@@ -23,14 +23,6 @@ Requires:       %{name} = %{version}
 %description devel
 Development libraries and headers for developing software against
 libvpx.
-
-%package doc
-Summary:   Documentation for %{name}
-BuildArch: noarch
-Requires:  %{name} = %{version}-%{release}
-
-%description doc
-%{summary}.
 
 %prep
 %autosetup -p1 -n %{name}-%{version}/upstream
@@ -61,16 +53,10 @@ Requires:  %{name} = %{version}-%{release}
 %postun -n %{name} -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,-)
 %license LICENSE
 %{_libdir}/%{name}.so.*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/vpx/
 %{_libdir}/pkgconfig/vpx.pc
 %{_libdir}/%{name}.so
-
-%files doc
-%defattr(-,root,root,-)
-%doc AUTHORS README CHANGELOG
