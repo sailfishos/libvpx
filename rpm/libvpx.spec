@@ -1,9 +1,9 @@
 Name:           libvpx
 Summary:        VP8/VP9 Video Codec SDK
-Version:        1.14.1
+Version:        1.15.2
 Release:        1
 License:        BSD
-Url:            https://www.webmproject.org/code/
+Url:            https://github.com/sailfishos/libvpx
 Source0:        %{name}-%{version}.tar.bz2
 Patch1:         0001-armv7-use-hard-float.patch
 Patch2:         0002-Skip-diff-version-check-that-doesnt-work-with-busybo.patch
